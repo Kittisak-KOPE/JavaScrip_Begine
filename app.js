@@ -1,5 +1,4 @@
-let money = 12;
-do {
-  console.log("You have " + money + " dollars");
-  money++;
-} while (money < 10);
+let number = 20 + null; // 20 + 0
+console.log(number);
+let number2 = 20 + undefined; // 20 + 0;
+console.log(number2);

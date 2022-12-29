@@ -1,0 +1,222 @@
+## JavaScrip Continued
+
+### String Properties and Methods
+
+```
+let text = " Peter Jordan";
+
+let result = text.length;
+console.log(result);
+
+console.log(text.length);
+console.log(text.toLowerCase());
+console.log(text.toUpperCase());
+console.log(text.charAt(12));
+console.log(text.charAt(text.length - 1));
+console.log(text.indexOf("p"));
+console.log(text.indexOf("P"));
+
+console.log(text);
+console.log(text.trim());
+console.log(text.startsWith(" Peter"));
+console.log(text.trim().toLowerCase().startsWith("peter"));
+console.log(text.includes("eter"));
+console.log(text.slice(0, 3));
+console.log(text.slice(-3));
+```
+
+### Template Literals
+
+Template Literals - ES6+
+Backtick characters `` - above tab (left form one)
+Interpolation ${} - insert expression(value)
+
+```
+const name = "John";
+const age = 25;
+
+const sentence = "Hey it's " + name + " and he is " + age + " years old";
+console.log(sentence);
+
+const value = `Hey it's ${name} and he is ${age} years old. And here is some simple math ${
+  4 + 4
+}`;
+console.log(value);
+```
+
+### String Challenge
+
+1. Create function fullName
+2. Accept two parameters "firstName", "lastName"
+3. Add them together (concat) and return result in uppercase
+4. invoke fullName and pass some values
+5. log result
+6. change the order of arguments
+7. refactor to object parameter
+
+```
+function fullName(firstName, lastName) {
+  const fullName = `${firstName} ${lastName}`;
+  return fullName.toUpperCase();
+}
+
+console.log(fullName("john", "smith"));
+console.log(fullName("jordan", "peter"));
+```
+
+...
+
+```
+function fullName({ firstName, lastName }) {
+  const fullName = `${firstName} ${lastName}`;
+  return fullName.toUpperCase();
+}
+
+console.log(fullName({ lastName: "jordan", firstName: "peter" }));
+```
+
+### Array Properties and Methods
+
+```
+let names = ["john", "bobo", "barry", "olga", "ben"];
+
+//length
+console.log(names.length);
+console.log(names[4]);
+console.log(names[names.length - 1]);
+
+//concat
+const lastNames = ["pepper", "onion", "banana"];
+const allNames = names.concat(lastNames);
+console.log(allNames);
+
+//reverse
+console.log(allNames.reverse());
+
+//unshift
+allNames.unshift("susy");
+console.log(allNames);
+
+//shift
+allNames.shift();
+console.log(allNames);
+
+//push
+allNames.push("susy");
+console.log(allNames);
+
+//;pop
+allNames.pop();
+console.log(allNames);
+
+//splice - mutates original array
+const specificName = allNames.splice(2, 1);
+console.log(specificName);
+console.log(allNames);
+```
+
+### Exercise - Full Name
+
+```
+const names = ["anna", "susy", "bob"];
+const lastName = "shakeandbake";
+let newArray = [];
+
+//for loop
+for (let i = 0; i < names.length; i++) {
+  console.log(i);
+  console.log(names[i]);
+
+  newArray.push(`${names[i]} ${lastName}`);
+}
+
+console.log(names);
+console.log(newArray);
+```
+
+### Exercise - Calculate Total
+
+functions, return, if, arrays, for loop
+
+```
+const gas = [10, 40, 100, 30];
+const food = [10, 40, 50];
+
+function calculateTotal(arr) {
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    // console.log(arr[i]);
+    total += arr[i];
+  }
+  if (total > 100) {
+    console.log(`Whoa! You are spending way too much`);
+    return total;
+  }
+  console.log(`You are good total is less than 100`);
+  return total;
+}
+
+const gasTotal = calculateTotal(gas);
+const foodTotal = calculateTotal(food);
+const randomTotal = calculateTotal([200, 4000, 500, 1]);
+
+console.log({
+  gas: gasTotal,
+  food: foodTotal,
+  random: randomTotal,
+});
+```
+
+### Value vs Reference
+
+Primitive Data Types
+String, Number, Symbol, Boolean, Undefined, Null,
+Arrays, Functions, Objects = object
+typeof
+
+when assigning primitive data type value to a variable any changes are made directly to that value, without affecting original value
+
+when assigning non-primitive data type value to a variable is done by reference so any changes will affect all the references.
+
+```
+const number = 1;
+let number2 = number;
+number2 = 7;
+
+console.log(`the first value is ${number}`);
+console.log(`the second value is ${number2}`);
+
+let person = { name: "bob" };
+
+// let person2 = person;
+let person2 = { ...person };
+
+person2.name = "susy";
+console.log(`the name of the first person is ${person.name}`);
+console.log(`the name of the second person is ${person2.name}`);
+```
+
+### Null and Undefined
+
+both represent "no value"
+
+undefined - "javascript can not find value for this"
+
+variable without value
+missing function arguments
+missing object properties
+
+null - "deverloper sets the value"
+
+```
+let number = 20 + null; // 20 + 0
+console.log(number);
+let number2 = 20 + undefined; // 20 + 0;
+console.log(number2);
+```
+
+## Truthy and Falsy
+
+```
+
+```
