@@ -217,6 +217,132 @@ console.log(number2);
 
 ## Truthy and Falsy
 
+"", '', ``, 0, -0, NaN, False, null, undefine
+
+```
+// "", '', ``, 0, -0, NaN, False, null, undefine
+const bool1 = true;
+const bool2 = 2 > 1;
+
+const text = undefined;
+
+if (text) {
+  console.log("hey the value Truthy");
+} else {
+  console.log("hey the value Falsy");
+}
 ```
 
+### Ternary Operator
+
+```
+// unary operator - typeof
+let text = "some text";
+console.log(typeof text); //operand
+
+// binary operator - assignment
+let number = 3;
+let number2 = 2 + 5;
+
+// ternary operator
+// condition ? (runs if true) : (runs if false)
+const value = 2 > 1;
+
+value ? console.log("value is true") : console.log("value is false");
+```
+
+### Global Scope
+
+any variable outside code block {} is said to be in global Scope can be access anywhere in the program Gotchas : name collisions, modify by mistake
+
+```
+let name = "bobo";
+name = "peter";
+
+function calculate() {
+  // some other code ...
+  console.log(name);
+  name = "orange";
+  function inner() {
+    name = "inner name value";
+    console.log(`this is from inner function ${name}`);
+  }
+  inner();
+}
+
+calculate();
+
+if (true) {
+  //some other code ...
+  console.log(name);
+  name = "pants";
+}
+
+console.log(`my name is ${name} and I'm awesome`);
+```
+
+### Local Scope
+
+can not access from outside code blocks
+if - NOT VAR
+
+```
+let name = "bobo";
+
+function calculate() {
+  const name = "john";
+}
+
+calculate();
+
+if (true) {
+  const name = "john";
+}
+
+console.log(`my name is ${name} and I'm awesome`);
+```
+
+```
+let name = "bobo";
+
+function calculate() {
+  const name = "john";
+  const age = 25;
+  // code goes here
+  becomesGlobal = "global variable";
+}
+
+calculate();
+// console.log(age);
+console.log(becomesGlobal);
+
+if (true) {
+  const name = "john";
+}
+
+console.log(`my name is ${name} and I'm awesome`);
+```
+
+### Variable Lookup
+
+{} = code block
+
+```
+const globalNumber = 5;
+
+function add(num1, num2) {
+  //   const globalNumber = 20;
+  const result = num1 + num2 + globalNumber;
+  function multiply() {
+    // const globalNumber = 100;
+    const multiplyResult = result * globalNumber;
+    console.log(multiplyResult);
+  }
+  //   console.log(multiplyResult);
+
+  multiply();
+  return result;
+}
+
+console.log(add(3, 4));
 ```
