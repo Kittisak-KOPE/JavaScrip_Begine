@@ -347,7 +347,7 @@ function add(num1, num2) {
 console.log(add(3, 4));
 ```
 
-## Calback Functions, Higher Order Functions
+### Calback Functions, Higher Order Functions
 
 - Functions are first class objects - stored in a variable (expression), passed as an argument to another function, return from the function (closure).
 - Higher Order function - accepts another function as an argument or returns another function as a result.
@@ -392,4 +392,75 @@ function greet(name, cb) {
 greet("bobo", morning);
 
 greet("peter", afternoon);
+```
+
+### Array Iterators
+
+Powerfull Array Methods forEach, map, filter, find, reduce
+Interate over array - no for loop rrequired
+Accept CALLBACK function as an argument, calls Callback against each item in a array. Reference Item in the Callback Paramater.
+
+```
+const numbers = [0, 1, 2, 3, 4];
+
+//show all numbers
+for (let i = 0; i < numbers.length; i++) {
+  console.log(numbers[i]);
+}
+```
+
+### forEach
+
+forEach does not return new array
+
+```
+const people = [
+  { name: "bob", age: 20, position: "developer" },
+  { name: "peter", age: 25, position: "designer" },
+  { name: "susy", age: 30, position: "the boss" },
+];
+
+function showPerson(person) {
+  //   console.log(person);                                 (1)
+  console.log(person.position.toUpperCase());
+}
+
+// people.forEach(showPerson);                              (2)
+people.forEach(function (item) {
+  console.log(item.position.toLowerCase());
+});
+```
+
+### map
+
+map does return a new array
+map does not change size of original array
+map uses values from original array when making new one
+
+```
+const people = [
+  { name: "bob", age: 20, position: "developer" },
+  { name: "peter", age: 25, position: "designer" },
+  { name: "susy", age: 30, position: "the boss" },
+  { name: "anna", age: 35, position: "the boss" },
+];
+
+const ages = people.map(function (person) {
+  return person.age + 20;
+});
+
+const newPeople = people.map(function (person) {
+  return {
+    fistName: person.name.toUpperCase(),
+    oldAge: person.age + 20,
+  };
+});
+
+const names = people.map(function (person) {
+  return `<h1>${person.name}</h1>`;
+});
+
+document.body.innerHTML = names.join("");
+
+console.log(names);
 ```

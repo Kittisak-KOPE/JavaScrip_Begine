@@ -1,7 +1,25 @@
-const firtName = "kittisak";
-const Last_name = "hanheam";
+const people = [
+  { name: "bob", age: 20, position: "developer" },
+  { name: "peter", age: 25, position: "designer" },
+  { name: "susy", age: 30, position: "the boss" },
+  { name: "anna", age: 35, position: "the boss" },
+];
 
-let address = "main street";
-address = "first street";
+const ages = people.map(function (person) {
+  return person.age + 20;
+});
 
-console.log(firtName, Last_name, address);
+const newPeople = people.map(function (person) {
+  return {
+    fistName: person.name.toUpperCase(),
+    oldAge: person.age + 20,
+  };
+});
+
+const names = people.map(function (person) {
+  return `<h1>${person.name}</h1>`;
+});
+
+document.body.innerHTML = names.join("");
+
+console.log(names);
