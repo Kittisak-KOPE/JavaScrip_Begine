@@ -1,17 +1,7 @@
-const globalNumber = 5;
+const firtName = "kittisak";
+const Last_name = "hanheam";
 
-function add(num1, num2) {
-  //   const globalNumber = 20;
-  const result = num1 + num2 + globalNumber;
-  function multiply() {
-    // const globalNumber = 100;
-    const multiplyResult = result * globalNumber;
-    console.log(multiplyResult);
-  }
-  //   console.log(multiplyResult);
+let address = "main street";
+address = "first street";
 
-  multiply();
-  return result;
-}
-
-console.log(add(3, 4));
+console.log(firtName, Last_name, address);

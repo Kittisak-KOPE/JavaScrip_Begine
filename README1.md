@@ -84,8 +84,8 @@ console.log({ name: "john" });
 
 ### Variable Naming Rules
 
-can contain digits, letters, underscore, $
-must start wit letter, $ ro \_
+can contain digits, letters, underscore, \$
+must start with letter, \$ or \_
 no keyword
 cannot start with number
 case sensitive - fullname vs Fullname

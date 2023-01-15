@@ -347,4 +347,49 @@ function add(num1, num2) {
 console.log(add(3, 4));
 ```
 
-## test
+## Calback Functions, Higher Order Functions
+
+- Functions are first class objects - stored in a variable (expression), passed as an argument to another function, return from the function (closure).
+- Higher Order function - accepts another function as an argument or returns another function as a result.
+- Callback Function - passed to a another function as an argument and executed inside that function
+
+```
+// function greeMorning(name) {
+//   const myName = "john";
+//   console.log(`Good morning ${name}, my name is ${myName}`);
+// }
+
+// greeMorning("bobo");
+
+// ---------------------------------------------------------------
+
+// function morning() {
+//   console.log("Good morning Bob");
+//   return "Good morning Bob";
+// }
+
+// function greet(name, cb) {
+//   const myName = "john";
+//   console.log(`${name}, my name is ${myName}`);
+//   cb();
+// }
+
+// ---------------------------------------------------------------
+
+function morning(name) {
+  return `Good morning ${name.toUpperCase()}`;
+}
+
+function afternoon(name) {
+  return `Good afternoon ${name.repeat(3)}`;
+}
+
+function greet(name, cb) {
+  const myName = "john";
+  console.log(`${cb(name)}, my name is ${myName}`);
+}
+
+greet("bobo", morning);
+
+greet("peter", afternoon);
+```
